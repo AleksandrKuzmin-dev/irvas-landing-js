@@ -15,9 +15,9 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabT
 
             if(index == i){
                 item.style.display = tabTypeBlock;
-                setActiveClass(i);
             };
         });
+
     };
 
     function setActiveClass(i){
@@ -32,11 +32,11 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabT
 
     header.addEventListener('click', (event) => {
         const target = event.target;
-        console.log(target);
         if (target.classList.contains(tabSelector.replace(/\./, '')) || target.parentNode.classList.contains(tabSelector.replace(/\./, ''))){
             tabs.forEach((tab, index) => {
                 if(target == tab || target.parentNode == tab){
                     showContent(index);
+                    setActiveClass(index);
                 }
             });
         }
