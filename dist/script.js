@@ -67,6 +67,64 @@ const modals = () => {
 
 /***/ }),
 
+/***/ "./src/js/modules/tabs.js":
+/*!********************************!*\
+  !*** ./src/js/modules/tabs.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* Табы */
+/* 
+1. Клик по табу
+2. Добавление класса активности табу и скрытие его у остальных
+3. Показ контента и скрытие остального контента
+*/
+const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabTypeBlock = 'block') => {
+  const header = document.querySelector(headerSelector),
+    tabs = document.querySelectorAll(tabSelector),
+    content = document.querySelectorAll(contentSelector);
+  function showContent(i) {
+    content.forEach((item, index) => {
+      item.style.display = 'none';
+      if (index == i) {
+        item.style.display = tabTypeBlock;
+        setActiveClass(i);
+      }
+      ;
+    });
+  }
+  ;
+  function setActiveClass(i) {
+    tabs.forEach((item, index) => {
+      item.classList.remove(activeSelector.replace(/\./, ''));
+      if (index == i) {
+        item.classList.add(activeSelector.replace(/\./, ''));
+      }
+      ;
+    });
+  }
+  ;
+  header.addEventListener('click', event => {
+    const target = event.target;
+    console.log(target);
+    if (target.classList.contains(tabSelector.replace(/\./, '')) || target.parentNode.classList.contains(tabSelector.replace(/\./, ''))) {
+      tabs.forEach((tab, index) => {
+        if (target == tab || target.parentNode == tab) {
+          showContent(index);
+        }
+      });
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);
+
+/***/ }),
+
 /***/ "./src/js/slider.js":
 /*!**************************!*\
   !*** ./src/js/slider.js ***!
@@ -13979,10 +14037,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_modals__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
+  (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', '.after_click');
 });
 })();
 
