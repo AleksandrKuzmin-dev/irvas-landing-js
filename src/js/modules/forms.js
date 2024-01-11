@@ -1,42 +1,10 @@
 /* Формы */
+import notificationForm from './notificationForm';
+import checkNumInputs from './checkNumInputs';
 
 const forms = (formSelector) => {
     const forms = document.querySelectorAll(formSelector),
-          inputs = document.querySelectorAll('input'),
-          phoneInputs = document.querySelectorAll('input[name="user_phone"]')
-
-    const messages = {
-        loading: 'Загрузка...',
-        succes: 'Спасибо! Скоро мы с вами свяжемся.',
-        failure: 'Что-то пошло не так...',
-        statusMessage: '',
-        timeOutClear: '',
-
-        make(form) {
-            try{
-                this.statusMessage.remove();
-                clearInterval(this.timeOutClear);
-            } catch {
-                
-            }
-            this.statusMessage = document.createElement('div');
-            this.statusMessage.classList.add('status');
-            this.statusMessage.textContent = this.loading;
-            form.appendChild(this.statusMessage);
-        },
-        setSucces() {
-            this.statusMessage.textContent = this.succes;
-        },
-        setFailure() {
-            this.statusMessage.textContent = this.failure;
-        },
-        clear(time = 5000) {
-            this.timeOutClear = setTimeout(() => {
-                this.statusMessage.remove();
-            }, time);
-            
-        }
-    };
+          inputs = document.querySelectorAll('input');
 
     const postData = async function(url, data){
        const result = await fetch(url, {
@@ -58,27 +26,24 @@ const forms = (formSelector) => {
             e.preventDefault();
             const formData = new FormData(item);
 
-            messages.make(item);
+            notificationForm.make(item);
             postData('./assets/server.php', formData)
                 .then(res => {
                     console.log(res);
-                    messages.setSucces();
+                    notificationForm.setSucces();
                 })
                 .catch(() => {
-                    messages.setFailure();
+                    notificationForm.setFailure();
                 })
                 .finally(() => {
-                    messages.clear();
+                    notificationForm.clear();
                     clearAllInputs();
                 })
         });
     });
 
-    phoneInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '');
-        })
-    })
+    checkNumInputs('input[name="user_phone"]')
+    
 };
 
 export default forms;

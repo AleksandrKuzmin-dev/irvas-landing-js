@@ -1,4 +1,4 @@
-const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabTypeBlock = 'block') => {
+const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, display = 'block') => {
     const header = document.querySelector(headerSelector),
           tabs = document.querySelectorAll(tabSelector),
           content = document.querySelectorAll(contentSelector);
@@ -8,7 +8,7 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabT
             item.style.display = 'none';
 
             if(index == i){
-                item.style.display = tabTypeBlock;
+                item.style.display = display;
             };
         });
 

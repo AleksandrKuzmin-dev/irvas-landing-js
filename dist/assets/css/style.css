@@ -16,6 +16,7 @@ body {
 .status {
   display: block;
   color: red;
+  margin-top: 20px;
 }
 
 a:hover {
