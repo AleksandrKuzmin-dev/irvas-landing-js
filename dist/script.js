@@ -101,7 +101,6 @@ const modals = state => {
     trigger.forEach(item => {
       item.addEventListener('click', e => {
         if (e.target) {
-          /* [type, width] */
           if (fieldsStateForCheck) {
             let valid = true;
             fieldsStateForCheck.forEach(item => {
@@ -117,9 +116,9 @@ const modals = state => {
             }
           } else {
             e.preventDefault();
+            _notificationForm__WEBPACK_IMPORTED_MODULE_0__["default"].clear(0);
             closeModal(allModals);
             showModal(modal);
-            _notificationForm__WEBPACK_IMPORTED_MODULE_0__["default"].clear(0);
           }
         }
       });
@@ -182,7 +181,6 @@ const notificationForm = {
   loading: 'Загрузка...',
   succes: 'Спасибо! Скоро мы с вами свяжемся.',
   failure: 'Что-то пошло не так...',
-  otherText: '',
   statusMessage: '',
   timeOutClear: '',
   make(form) {

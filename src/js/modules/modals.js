@@ -12,7 +12,6 @@ const modals = (state) => {
         trigger.forEach((item) => {
             item.addEventListener('click', (e) => {
                 if (e.target){
-                    /* [type, width] */
                     if(fieldsStateForCheck) {
                         let valid = true;
 
@@ -30,9 +29,10 @@ const modals = (state) => {
                         }
                     } else {
                         e.preventDefault();
+                        notificationForm.clear(0);
                         closeModal(allModals);
                         showModal(modal);
-                        notificationForm.clear(0);
+                        
                     }
                 }
             })
