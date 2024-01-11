@@ -32,7 +32,6 @@ const modals = (state) => {
                         notificationForm.clear(0);
                         closeModal(allModals);
                         showModal(modal);
-                        
                     }
                 }
             })
@@ -63,6 +62,7 @@ const modals = (state) => {
     function closeModal(modals){
         modals.forEach(item => item.style.display = 'none');
         document.body.style.overflow = '';
+        notificationForm.clear(0);
     };
 
     function showModalToTime(modalSelector, time){

@@ -146,6 +146,7 @@ const modals = state => {
   function closeModal(modals) {
     modals.forEach(item => item.style.display = 'none');
     document.body.style.overflow = '';
+    _notificationForm__WEBPACK_IMPORTED_MODULE_0__["default"].clear(0);
   }
   ;
   function showModalToTime(modalSelector, time) {
