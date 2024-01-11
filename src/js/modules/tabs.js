@@ -1,9 +1,3 @@
-/* Табы */
-/* 
-1. Клик по табу
-2. Добавление класса активности табу и скрытие его у остальных
-3. Показ контента и скрытие остального контента
-*/
 const tabs = (headerSelector, tabSelector, contentSelector, activeSelector, tabTypeBlock = 'block') => {
     const header = document.querySelector(headerSelector),
           tabs = document.querySelectorAll(tabSelector),
