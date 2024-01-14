@@ -2,7 +2,7 @@
 import notificationForm from './notificationForm';
 import checkNumInputs from './checkNumInputs';
 
-const forms = (formSelector) => {
+const forms = (formSelector, state) => {
     const forms = document.querySelectorAll(formSelector),
           inputs = document.querySelectorAll('input');
 
@@ -25,6 +25,12 @@ const forms = (formSelector) => {
         item.addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = new FormData(item);
+
+            if (item.getAttribute('data-calc') == "end"){
+                for (let key in state){
+                    formData.append(key, state[key])
+                }
+            }
 
             notificationForm.make(item);
             postData('./assets/server.php', formData)

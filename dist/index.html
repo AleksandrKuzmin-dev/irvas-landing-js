@@ -843,13 +843,13 @@
                  <h2>Калькулятор</h2>
                 <h3>Выберите форму балкона <br>и укажите размеры</h3>
                 <div class="balcon_icons">
-                    <span class="balcon_icons_img do_image_more">
+                    <span class="balcon_icons_img do_image_more" data-value="Тип 1">
                       <img src="assets/img/modal_calc/balkon/ba_01.png" alt="Тип1"></span>
-                    <span class="balcon_icons_img">
+                    <span class="balcon_icons_img" data-value="Тип 2">
                       <img src="assets/img/modal_calc/balkon/ba_02.png" alt="Тип2"></span>
-                    <span class="balcon_icons_img">
+                    <span class="balcon_icons_img" data-value="Тип 3">
                       <img src="assets/img/modal_calc/balkon/ba_03.png" alt="Тип3"></span>
-                    <span class="balcon_icons_img"> 
+                    <span class="balcon_icons_img" data-value="Тип 4"> 
                       <img src="assets/img/modal_calc/balkon/ba_04.png" alt="Тип4"></span>
                   </div>
                    <div class="big_img text-center">
@@ -875,22 +875,22 @@
                  <h2>Калькулятор</h2>
                  <h3>Выберите тип остекления <br>и его профиль</h3>
                  <select class="form-control" name="view" id="view_type">
-                   <option value="tree">Деревянное остекление</option>
-                   <option value="aluminum">Алюминиевое остекление</option>
-                   <option value="plastic">Остекление пластиковыми рамами</option>
-                   <option value="french">Панорамное остекление</option>
-                   <option value="overhang">Остекление с выносом</option>
+                   <option value="tree" data-value="tree">Деревянное остекление</option>
+                   <option value="aluminum" data-value="aluminum">Алюминиевое остекление</option>
+                   <option value="plastic" data-value="plastic">Остекление пластиковыми рамами</option>
+                   <option value="french" data-value="french">Панорамное остекление</option>
+                   <option value="overhang" data-value="overhang">Остекление с выносом</option>
                  </select>
                  <img src="assets/img/modal_calc/icon_cold.png" alt="">
                  <label>
-                     <input class="checkbox" type="checkbox" name="checkbox-test">
+                     <input class="checkbox checkbox-test" data-value="cold" type="checkbox" name="checkbox-test">
                      <span class="checkbox-custom" id="cold"></span>
                      <span class="label">Холодное</span>
                  </label>
                  <img src="assets/img/modal_calc/icon_warm.png" alt="">
                  <label>
-                     <input class="checkbox" type="checkbox" name="checkbox-test">
-                     <span class="checkbox-custom" id="warm"></span>
+                     <input class="checkbox checkbox-test" type="checkbox" data-value="warm" name="checkbox-test">
+                     <span class="checkbox-custom checkbox-test" id="warm"></span>
                      <span class="label">Теплое</span>
                  </label>
 
@@ -904,7 +904,7 @@
             <div class="popup_content text-center">
                 <button type="button" class="popup_calc_end_close"><strong>&times;</strong></button>
                 <div class="popup_form">
-                    <form class="form" action="#">
+                    <form class="form" action="#" data-calc="end">
                       <h2>Спасибо за обращение! <br>Оставьте свои данные</h2>
                         <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
                         <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
