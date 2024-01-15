@@ -6,7 +6,7 @@ const images = () => {
     bigImage.style.maxWidth = '100%';
     bigImage.style.maxHeight = '100%';
 
-    imgPopup.classList.add('popup');
+    imgPopup.classList.add('popup', 'fadeIn');
     imgPopup.style.justifyContent = 'center';
     imgPopup.style.alignItems = 'center';
     imgPopup.style.display = 'none';
