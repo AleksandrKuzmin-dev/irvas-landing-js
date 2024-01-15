@@ -19,6 +19,7 @@ function changeModalState(state) {
                     case 'INPUT':
                         if (elem.getAttribute('type') != 'checkbox'){
                             state[prop] = elem.value;
+                            if(state[prop] == false) delete state[prop];
                         } else {
                             if(elem.checked){
                                 temperature.forEach((item) => {
@@ -37,6 +38,7 @@ function changeModalState(state) {
                         break;
                     case 'SELECT':
                         state[prop] = elem.value;
+                        break;
                 };
             });
         });
